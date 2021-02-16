@@ -8,7 +8,7 @@ node_modules/
 dist/
 stingray_cli_core.egg-info
 
-
+.pypirc
 # Compiled Java class files
 *.class
 
