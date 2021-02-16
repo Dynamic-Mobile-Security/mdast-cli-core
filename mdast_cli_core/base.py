@@ -19,24 +19,33 @@ class mDastBase:
         self.current_context = current_user_info_resp.json()
         return current_user_info_resp
 
+    def set_user_language(self, login, lang):
+        data = {
+            'username': login,
+            'language': lang
+        }
+        set_language_resp = requests.patch(f'{self.url}/currentuser/', headers=self.headers, data=json.dumps(data))
+        assert set_language_resp.status_code == 200
+
     def get_projects(self):
         return requests.get(f'{self.url}/organizations/{self.current_context["company"]}/projects/',
                             headers=self.headers)
 
-    def create_project(self, project_info):
+    def create_project(self, project_info, arch_type):
         data = {
             'name': project_info['name'],
             'description': project_info['description'],
+            'architecture_type': arch_type
         }
         return requests.post(f'{self.url}/organizations/{self.current_context["company"]}/projects/',
                              headers=self.headers,
                              data=json.dumps(data))
 
-    def create_project_for_organization(self, org_id, project_info):
+    def create_project_for_organization(self, org_id, project_info, arch_type):
         data = {
             'name': project_info['name'],
             'description': project_info['description'],
-            'architecture_type': project_info['architecture_type']
+            'architecture_type': arch_type
         }
         return requests.post(f'{self.url}/organizations/{org_id}/projects/',
                              headers=self.headers,
