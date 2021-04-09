@@ -3,7 +3,10 @@
 
 name: Publish mdast_cli_core 🐍 distributions to PyPI
 
-on: push
+on: 
+  push: 
+    branches:
+      - main
 
 jobs:
   build-n-publish:
