@@ -68,9 +68,12 @@ class mDastBase:
     def delete_user(self, user_id):
         return requests.delete(f'{self.url}/users/{user_id}/', headers=self.headers)
 
-    def update_user(self, user_id, user_data):
+    def update_user(self, user_info, org_id, user_data):
+        user_id = user_info['id']
         data = {
-            'username': user_data['username']
+            'username': user_data['username'],
+            'company': org_id,
+            'position': user_data.get('position')
         }
         return requests.patch(f'{self.url}/users/{user_id}/', headers=self.headers, data=json.dumps(data))
 
