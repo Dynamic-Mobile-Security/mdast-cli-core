@@ -54,6 +54,9 @@ class mDastBase:
     def get_users(self):
         return requests.get(f'{self.url}/organizations/{self.current_context["company"]}/users', headers=self.headers)
 
+    def get_users_by_org(self, org_id):
+        return requests.get(f'{self.url}/organizations/{org_id}/users', headers=self.headers)
+
     def get_user_info(self, user_id):
         return requests.get(f'{self.url}/users/{user_id}/', headers=self.headers)
 
