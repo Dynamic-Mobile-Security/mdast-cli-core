@@ -72,13 +72,13 @@ class mDastBase:
         }
         return requests.post(f'{self.url}/organizations/{org_id}/users/', headers=self.headers, data=json.dumps(data))
 
-    def create_user_by_superadmin(self, user_id, username, org_id, is_admin, is_active, position, change_pass):
+    def create_user_by_superadmin(self, user_id, username, org_id, is_admin, is_active, position, change_password):
         data = {
             'username': username,
             'is_admin': is_admin,
             'is_active': is_active,
             'position': position,
-            'change_pass': change_pass,
+            'change_password': change_password,
             'org_id': org_id
         }
         return requests.put(f'{self.url}/users/{user_id}/', headers=self.headers, data=json.dumps(data))
@@ -95,13 +95,13 @@ class mDastBase:
         }
         return requests.patch(f'{self.url}/users/{user_id}/', headers=self.headers, data=json.dumps(data))
 
-    def patch_user(self, user_id, username, is_admin, is_active, position, change_pass):
+    def patch_user(self, user_id, username, is_admin, is_active, position, change_password):
         data = {
             'username': username,
             'is_admin': is_admin,
             'is_active': is_active,
             'position': position,
-            'change_pass': change_pass
+            'change_password': change_password
         }
         return requests.patch(f'{self.url}/users/{user_id}/', headers=self.headers, data=json.dumps(data))
 
