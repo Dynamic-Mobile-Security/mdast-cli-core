@@ -31,6 +31,10 @@ class mDastBase:
         return requests.get(f'{self.url}/organizations/{self.current_context["company"]}/projects/',
                             headers=self.headers)
 
+    def get_projects_by_org_id(self, org_id):
+        return requests.get(f'{self.url}/organizations/{org_id}/projects/',
+                            headers=self.headers)
+
     def create_project(self, project_info, arch_type):
         data = {
             'name': project_info['name'],
