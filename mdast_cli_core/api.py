@@ -2,6 +2,7 @@ import requests
 import json
 from .base import mDastBase
 
+
 class mDastAPI(mDastBase):
     """
     Class for interact with mDast system through REST API
