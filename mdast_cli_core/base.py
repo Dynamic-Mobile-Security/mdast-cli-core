@@ -72,36 +72,36 @@ class mDastBase:
         }
         return requests.post(f'{self.url}/organizations/{org_id}/users/', headers=self.headers, data=json.dumps(data))
 
-    def create_user_by_superadmin(self, user_id, username, org_id, is_admin, is_active, position, change_password):
+    def create_user_by_superadmin(self, user_id, username, org_id, is_admin, is_active, change_password,
+                                  accepted_eula, accepted_confidential):
         data = {
             'username': username,
             'is_admin': is_admin,
             'is_active': is_active,
-            'position': position,
             'change_password': change_password,
-            'org_id': org_id
+            'org_id': org_id,
+            'accepted_eula': accepted_eula,
+            'accepted_confidential': accepted_confidential
         }
         return requests.put(f'{self.url}/users/{user_id}/', headers=self.headers, data=json.dumps(data))
 
     def delete_user(self, user_id):
         return requests.delete(f'{self.url}/users/{user_id}/', headers=self.headers)
 
-    def update_user(self, user_info, org_id, user_data):
-        user_id = user_info['id']
+    def update_username(self, user_id, username):
         data = {
-            'username': user_data['username'],
-            'company': org_id,
-            'position': user_data.get('position')
+            'username': username
         }
         return requests.patch(f'{self.url}/users/{user_id}/', headers=self.headers, data=json.dumps(data))
 
-    def patch_user(self, user_id, username, is_admin, is_active, position, change_password):
+    def patch_user(self, user_id, username, is_admin, is_active, change_password, accepted_eula, accepted_confidential):
         data = {
             'username': username,
             'is_admin': is_admin,
             'is_active': is_active,
-            'position': position,
-            'change_password': change_password
+            'change_password': change_password,
+            'accepted_eula': accepted_eula,
+            'accepted_confidential': accepted_confidential
         }
         return requests.patch(f'{self.url}/users/{user_id}/', headers=self.headers, data=json.dumps(data))
 
