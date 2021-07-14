@@ -105,6 +105,14 @@ class mDastBase:
         }
         return requests.patch(f'{self.url}/users/{user_id}/', headers=self.headers, data=json.dumps(data))
 
+    def accept_agreements(self, accept_eula, accept_confidential):
+        data = {
+          'accepted_eula': accept_eula,
+          'accepted_confidential': accept_confidential
+        }
+        return requests.patch(f'{self.url}/rest/currentuser/accept_agreements/',
+                              headers=self.headers, data=json.dumps(data))
+
     def change_user_organisation(self, user_data, new_org_id):
         data = {
             'username': user_data['username'],
