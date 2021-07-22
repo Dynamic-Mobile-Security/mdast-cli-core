@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="mdast_cli_core",
-    version='2.3.7',
+    version='2.4.0',
     author="Dynamic-Mobile-Security",
     description="mDast core package",
     long_description=long_description,
@@ -14,7 +14,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-         'requests'
+         'requests > 2.20'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
