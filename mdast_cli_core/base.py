@@ -234,6 +234,11 @@ class mDastBase:
                             headers=self.headers,
                             verify=False)
 
+    def get_all_scans_by_org_id(self, org_id):
+        return requests.get(f'{self.url}/organizations/{org_id}/dasts/',
+                            headers=self.headers,
+                            verify=False)
+
     def get_scan_info(self, scan_id):
         return requests.get(f'{self.url}/dasts/{scan_id}/',
                             headers=self.headers,
