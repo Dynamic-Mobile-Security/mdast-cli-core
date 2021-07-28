@@ -136,8 +136,8 @@ class mDastBase:
 
     def accept_agreements(self, accept_eula, accept_confidential):
         data = {
-          'accepted_eula': accept_eula,
-          'accepted_confidential': accept_confidential
+            'accepted_eula': accept_eula,
+            'accepted_confidential': accept_confidential
         }
         return requests.patch(f'{self.url}/currentuser/accept_agreements/',
                               headers=self.headers,
@@ -533,3 +533,27 @@ class mDastBase:
                               headers=self.headers,
                               verify=False)
         return report
+
+    def get_dast_logs(self, dast_id):
+        return requests.get(f'{self.url}/dasts/{dast_id}/log/',
+                            headers=self.headers,
+                            verify=False)
+
+    def download_dast_logs(self, dast_id):
+        logs = requests.get(f'{self.url}/dasts/{dast_id}/log/download/',
+                            allow_redirects=True,
+                            headers=self.headers,
+                            verify=False)
+        return logs
+
+    def get_testcase_logs(self, testcase_id):
+        return requests.get(f'{self.url}/testcases/{testcase_id}/log/',
+                            headers=self.headers,
+                            verify=False)
+
+    def download_testcase_logs(self, testcase_id):
+        logs = requests.get(f'{self.url}/testcases/{testcase_id}/log/download/',
+                            allow_redirects=True,
+                            headers=self.headers,
+                            verify=False)
+        return logs
