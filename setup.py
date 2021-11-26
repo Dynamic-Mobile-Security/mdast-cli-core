@@ -1,11 +1,11 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name="mdast_cli_core",
-    version='2.4.2',
+    version='2.5',
     author="Dynamic-Mobile-Security",
     description="mDast core package",
     long_description=long_description,
