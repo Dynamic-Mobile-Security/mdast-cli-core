@@ -234,6 +234,21 @@ class mDastBase:
                             headers=self.headers,
                             verify=False)
 
+    def get_all_started_scans_by_org_id(self, org_id):
+        return requests.get(f'{self.url}/organizations/{org_id}/dasts/?state=2&ordering=state&page_size=10000',
+                            headers=self.headers,
+                            verify=False)
+
+    def get_all_created_scans_by_org_id(self, org_id):
+        return requests.get(f'{self.url}/organizations/{org_id}/dasts/?state=0&ordering=state&page_size=10000',
+                            headers=self.headers,
+                            verify=False)
+
+    def get_all_scans_by_org_id_filter_profile(self, org_id, profile_id):
+        return requests.get(f'{self.url}/organizations/{org_id}/dasts/?profile={profile_id}',
+                            headers=self.headers,
+                            verify=False)
+
     def get_scan_info(self, scan_id):
         return requests.get(f'{self.url}/dasts/{scan_id}/',
                             headers=self.headers,
