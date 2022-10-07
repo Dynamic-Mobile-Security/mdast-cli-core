@@ -1,4 +1,4 @@
-from .base import mDastBase
+from mdast_cli_core.base import mDastBase
 
 
 class mDastToken(mDastBase):
