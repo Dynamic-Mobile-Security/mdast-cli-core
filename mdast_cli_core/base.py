@@ -560,6 +560,21 @@ class mDastBase:
                             headers=self.headers,
                             verify=False)
 
+    def get_profiles_for_project(self, project_id):
+        return requests.get(f'{self.url}/projects/{project_id}/profiles/',
+                            headers=self.headers,
+                            verify=False)
+
+    def get_dasts_for_org_project(self, org_id, project_id):
+        return requests.get(f'{self.url}/organizations/{org_id}/dasts/?project={project_id}',
+                            headers=self.headers,
+                            verify=False)
+
+    def get_dast_issues(self, dast_id):
+        return requests.get(f'{self.url}/dasts/{dast_id}/issues/?page_size=1000',
+                            headers=self.headers,
+                            verify=False)
+
     def download_dast_logs(self, dast_id):
         logs = requests.get(f'{self.url}/dasts/{dast_id}/log/download/',
                             allow_redirects=True,
@@ -585,3 +600,8 @@ class mDastBase:
                             headers=self.headers,
                             verify=False)
         return resp
+
+    def get_issue_info(self, issue_id):
+        return requests.get(f'{self.url}/dast_issues/{issue_id}/',
+                            headers=self.headers,
+                            verify=False)
