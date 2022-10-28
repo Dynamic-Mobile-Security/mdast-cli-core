@@ -605,3 +605,13 @@ class mDastBase:
         return requests.get(f'{self.url}/dast_issues/{issue_id}/',
                             headers=self.headers,
                             verify=False)
+
+    def get_localization_issue_data_keys(self):
+        return requests.get(f'{self.url}/localization/issue_data_keys',
+                            headers=self.headers,
+                            verify=False)
+
+    def get_modules(self):
+        return requests.get(f'{self.url}/modules/',
+                            headers=self.headers,
+                            verify=False)
