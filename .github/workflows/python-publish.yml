@@ -11,13 +11,13 @@ on:
 jobs:
   build-n-publish:
     name: Build and publish mdast_cli_core 🐍 distributions to PyPI
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Set up Python 3.7
+    - name: Set up Python 3.9
       uses: actions/setup-python@v1
       with:
-        python-version: 3.7
+        python-version: 3.9
     - name: Install pypa/build
       run: >-
         python -m
@@ -44,5 +44,4 @@ jobs:
       if: github.event_name == 'push'
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
-        user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
