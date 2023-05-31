@@ -382,6 +382,31 @@ class mDastBase:
                             headers=self.headers,
                             verify=False)
 
+    def engine_create(self, name, architecture):
+        data = {
+            "name": name,
+            "architecture": architecture
+        }
+        return requests.post(f'{self.url}/organizations/{self.current_context["company"]}/engines/',
+                             headers=self.headers,
+                             data=json.dumps(data),
+                             verify=False)
+
+    def get_engine(self, engine_id):
+        return requests.get(f'{self.url}/engines/{engine_id}/',
+                            headers=self.headers,
+                            verify=False)
+
+    def engine_management(self, engine_id, action):
+        return requests.get(f'{self.url}/engines/{engine_id}/{action}/',
+                            headers=self.headers,
+                            verify=False)
+
+    def engine_delete(self, engine_id):
+        return requests.delete(f'{self.url}/engines/{engine_id}/',
+                               headers=self.headers,
+                               verify=False)
+
     def get_organizations(self):
         return requests.get(f'{self.url}/organizations/',
                             headers=self.headers,
