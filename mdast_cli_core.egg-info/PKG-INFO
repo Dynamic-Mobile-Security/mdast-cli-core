@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: mdast-cli-core
+Version: 2022.8.12
+Summary: mDast core package
+Home-page: https://github.com/Dynamic-Mobile-Security/mdast-cli-core
+Author: Dynamic-Mobile-Security
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Description-Content-Type: text/markdown
+
+<h1>Mobile DAST CI/CD Core</h1>
+
+**This is a [mdast_cli](https://github.com/Dynamic-Mobile-Security/mdast-cli) core package. Include mDast backend API based on login/password method or by CI/CD token.**
+
+
+[![PyPi](https://img.shields.io/pypi/v/mdast_cli?color=3)](https://pypi.org/project/mdast-cli-core/)
+![GitHub issues](https://img.shields.io/github/issues-raw/Dynamic-Mobile-Security/mdast-cli-core)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/Dynamic-Mobile-Security/mdast-cli-core)
+
