@@ -608,6 +608,14 @@ class mDastBase:
                               verify=False)
         return report
 
+    def download_scan_json_result(self, dast_id):
+        report = requests.get(f'{self.url}/dasts/{dast_id}/report/?output=json',
+                              allow_redirects=True,
+                              headers=self.headers,
+                              verify=False)
+        return report
+
+
     def get_dast_logs(self, dast_id):
         return requests.get(f'{self.url}/dasts/{dast_id}/log/',
                             headers=self.headers,
